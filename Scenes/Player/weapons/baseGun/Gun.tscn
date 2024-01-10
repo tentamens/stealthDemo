@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://vmve0n3n3sa0"]
+
+[ext_resource type="Script" path="res://Scenes/Player/weapons/baseGun/Gun/BaseGunScript.gd" id="1_xujin"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqjcl"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Node3D"]
+script = ExtResource("1_xujin")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.170795, 0, 0, 0, 0.170795, 0, 0, 0, 0.170795, 0.0300643, 0.0353496, 0)
+size = Vector3(0.647949, 1.41394, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-7.46571e-09, 0.170795, 0, -0.170795, -7.46571e-09, 0, 0, 0, 0.170795, -0.0693683, 0.103729, 0)
+size = Vector3(0.647949, 1.41394, 1)
+
+[node name="Fire" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0.124533, 0.3)
+target_position = Vector3(0, -72.36, 0)
+collision_mask = 512
+collide_with_areas = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Fire"]
+transform = Transform3D(0.0317395, 0, 0, 0, 0.0317395, 0, 0, 0, 0.0317395, 0, 0, 0)
+material = SubResource("StandardMaterial3D_rqjcl")

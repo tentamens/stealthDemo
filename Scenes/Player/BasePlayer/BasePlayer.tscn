@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3smns680vfwr"]
+
+[ext_resource type="Script" path="res://Scenes/Player/BasePlayer/Script/BasePlayer.gd" id="1_rf5d1"]
+[ext_resource type="Script" path="res://Scenes/Player/BasePlayer/Script/camera.gd" id="2_s3783"]
+[ext_resource type="PackedScene" uid="uid://vmve0n3n3sa0" path="res://Scenes/Player/weapons/baseGun/Gun.tscn" id="3_fsp1r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8yj0v"]
+
+[node name="BasePlayer" type="CharacterBody3D"]
+collision_layer = 4097
+collision_mask = 4097
+script = ExtResource("1_rf5d1")
+slidingMultiplier = 1.2
+
+[node name="BodyCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8yj0v")
+
+[node name="Neck" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+script = ExtResource("2_s3783")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Neck/Camera3D"]
+transform = Transform3D(0.103194, 0, 0, 0, 0.0936168, -0.0434158, 0, 0.0434158, 0.0936168, 0.66673, -0.37992, -0.905932)
+size = Vector3(1, 1, 7.68701)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Neck/Camera3D"]
+transform = Transform3D(0.103194, 0, 0, 0, 0.0936168, -0.0434158, 0, 0.0434158, 0.0936168, -0.585544, -0.37992, -0.905932)
+size = Vector3(1, 1, 7.68701)
+
+[node name="Gun" parent="Neck/Camera3D" instance=ExtResource("3_fsp1r")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.568377, -0.186437, -1.26974)
+
+[node name="Fire" parent="Neck/Camera3D/Gun" index="2"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.19209e-07, 0.198569, 0.576659)
+
+[editable path="Neck/Camera3D/Gun"]

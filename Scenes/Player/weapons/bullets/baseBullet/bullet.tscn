@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://colxnsd8owkdi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gt54k"]
+size = Vector3(1.21277, 1, 1)
+
+[node name="Bullet" type="StaticBody3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.16988, 0, 0, 0, 0.16988, 0, 0, 0, 0.16988, 0.0372027, 0, 0)
+size = Vector3(1.43799, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.211164, 0, 0, 0, 0.211164, 0, 0, 0, 0.211164, 0.0224645, 0, 0)
+shape = SubResource("BoxShape3D_gt54k")
